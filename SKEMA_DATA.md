@@ -8,6 +8,8 @@ Lingkup: **klaim BPJS pasien Rawat Inap** RSU Ayah Ibu Anak Indonesia (Tipe A), 
 - **Sumber transform:** data lebar asli di `data/_wide_backup/`, diubah jadi skema ini oleh `data/build_star.py` (lossless — angka identik).
 - **Konsumsi:** `app.py` membaca dimensi & fakta, lalu *join* jadi tabel analisis.
 
+> 📐 **Lanjut baca:** [`CONCEPTUAL_MODEL.md`](CONCEPTUAL_MODEL.md) — model konseptual **DFM (Dimensional Fact Model)** per fakta beserta gambarnya (`conceptual_fact_*.png` / `.svg` / `.drawio`). Dokumen ini menjelaskan skema **fisik/aktual**; conceptual model menjelaskan desain **dimensional** (measures, hierarki dimensi, degenerate dimension) — termasuk beberapa fakta versi *ideal* (mis. peresepan obat, okupansi harian).
+
 ---
 
 ## 1. Diagram Hubungan (ERD)
@@ -257,3 +259,9 @@ Master formularium obat (snapshot).
 - **Dimensi referensi** (`dim_pasien`, `dim_ina_cbg`, `dim_tempat_tidur`, `dim_obat`): atributnya tidak semua di-chart, tapi sah sebagai master/target FK (best practice DW).
 - **Penyederhanaan data sintetis:** INA-CBG dipetakan 1:1 dengan diagnosis; `fact_stok_obat_bulanan` menyimpan jumlah agregat (bukan per-obat).
 - **Lossless:** total biaya riil, tarif, shortfall, jumlah baris — identik dengan data lebar asli.
+
+---
+
+## ➡️ Selanjutnya
+
+Setelah memahami skema fisik di atas, lanjutkan ke **[`CONCEPTUAL_MODEL.md`](CONCEPTUAL_MODEL.md)** untuk melihat **model konseptual (DFM)** tiap fakta — kotak fakta + measures, hierarki dimensi, degenerate dimension, bus matrix, serta gambar `conceptual_fact_*.png` / `.drawio`.
