@@ -1,0 +1,421 @@
+id_tempat_tidur,id_kelas,nama_kelas
+TT-1001,1,VIP
+TT-1002,1,VIP
+TT-1003,1,VIP
+TT-1004,1,VIP
+TT-1005,1,VIP
+TT-1006,1,VIP
+TT-1007,1,VIP
+TT-1008,1,VIP
+TT-1009,1,VIP
+TT-1010,1,VIP
+TT-1011,1,VIP
+TT-1012,1,VIP
+TT-1013,1,VIP
+TT-1014,1,VIP
+TT-1015,1,VIP
+TT-1016,1,VIP
+TT-1017,1,VIP
+TT-1018,1,VIP
+TT-1019,1,VIP
+TT-1020,1,VIP
+TT-1021,1,VIP
+TT-1022,1,VIP
+TT-1023,1,VIP
+TT-1024,1,VIP
+TT-1025,1,VIP
+TT-1026,1,VIP
+TT-1027,1,VIP
+TT-1028,1,VIP
+TT-1029,1,VIP
+TT-1030,1,VIP
+TT-1031,1,VIP
+TT-1032,1,VIP
+TT-1033,1,VIP
+TT-1034,1,VIP
+TT-1035,1,VIP
+TT-1036,1,VIP
+TT-1037,1,VIP
+TT-1038,1,VIP
+TT-1039,1,VIP
+TT-1040,1,VIP
+TT-2001,2,Kelas 1
+TT-2002,2,Kelas 1
+TT-2003,2,Kelas 1
+TT-2004,2,Kelas 1
+TT-2005,2,Kelas 1
+TT-2006,2,Kelas 1
+TT-2007,2,Kelas 1
+TT-2008,2,Kelas 1
+TT-2009,2,Kelas 1
+TT-2010,2,Kelas 1
+TT-2011,2,Kelas 1
+TT-2012,2,Kelas 1
+TT-2013,2,Kelas 1
+TT-2014,2,Kelas 1
+TT-2015,2,Kelas 1
+TT-2016,2,Kelas 1
+TT-2017,2,Kelas 1
+TT-2018,2,Kelas 1
+TT-2019,2,Kelas 1
+TT-2020,2,Kelas 1
+TT-2021,2,Kelas 1
+TT-2022,2,Kelas 1
+TT-2023,2,Kelas 1
+TT-2024,2,Kelas 1
+TT-2025,2,Kelas 1
+TT-2026,2,Kelas 1
+TT-2027,2,Kelas 1
+TT-2028,2,Kelas 1
+TT-2029,2,Kelas 1
+TT-2030,2,Kelas 1
+TT-2031,2,Kelas 1
+TT-2032,2,Kelas 1
+TT-2033,2,Kelas 1
+TT-2034,2,Kelas 1
+TT-2035,2,Kelas 1
+TT-2036,2,Kelas 1
+TT-2037,2,Kelas 1
+TT-2038,2,Kelas 1
+TT-2039,2,Kelas 1
+TT-2040,2,Kelas 1
+TT-2041,2,Kelas 1
+TT-2042,2,Kelas 1
+TT-2043,2,Kelas 1
+TT-2044,2,Kelas 1
+TT-2045,2,Kelas 1
+TT-2046,2,Kelas 1
+TT-2047,2,Kelas 1
+TT-2048,2,Kelas 1
+TT-2049,2,Kelas 1
+TT-2050,2,Kelas 1
+TT-2051,2,Kelas 1
+TT-2052,2,Kelas 1
+TT-2053,2,Kelas 1
+TT-2054,2,Kelas 1
+TT-2055,2,Kelas 1
+TT-2056,2,Kelas 1
+TT-2057,2,Kelas 1
+TT-2058,2,Kelas 1
+TT-2059,2,Kelas 1
+TT-2060,2,Kelas 1
+TT-2061,2,Kelas 1
+TT-2062,2,Kelas 1
+TT-2063,2,Kelas 1
+TT-2064,2,Kelas 1
+TT-2065,2,Kelas 1
+TT-2066,2,Kelas 1
+TT-2067,2,Kelas 1
+TT-2068,2,Kelas 1
+TT-2069,2,Kelas 1
+TT-2070,2,Kelas 1
+TT-2071,2,Kelas 1
+TT-2072,2,Kelas 1
+TT-2073,2,Kelas 1
+TT-2074,2,Kelas 1
+TT-2075,2,Kelas 1
+TT-2076,2,Kelas 1
+TT-2077,2,Kelas 1
+TT-2078,2,Kelas 1
+TT-2079,2,Kelas 1
+TT-2080,2,Kelas 1
+TT-3001,3,Kelas 2
+TT-3002,3,Kelas 2
+TT-3003,3,Kelas 2
+TT-3004,3,Kelas 2
+TT-3005,3,Kelas 2
+TT-3006,3,Kelas 2
+TT-3007,3,Kelas 2
+TT-3008,3,Kelas 2
+TT-3009,3,Kelas 2
+TT-3010,3,Kelas 2
+TT-3011,3,Kelas 2
+TT-3012,3,Kelas 2
+TT-3013,3,Kelas 2
+TT-3014,3,Kelas 2
+TT-3015,3,Kelas 2
+TT-3016,3,Kelas 2
+TT-3017,3,Kelas 2
+TT-3018,3,Kelas 2
+TT-3019,3,Kelas 2
+TT-3020,3,Kelas 2
+TT-3021,3,Kelas 2
+TT-3022,3,Kelas 2
+TT-3023,3,Kelas 2
+TT-3024,3,Kelas 2
+TT-3025,3,Kelas 2
+TT-3026,3,Kelas 2
+TT-3027,3,Kelas 2
+TT-3028,3,Kelas 2
+TT-3029,3,Kelas 2
+TT-3030,3,Kelas 2
+TT-3031,3,Kelas 2
+TT-3032,3,Kelas 2
+TT-3033,3,Kelas 2
+TT-3034,3,Kelas 2
+TT-3035,3,Kelas 2
+TT-3036,3,Kelas 2
+TT-3037,3,Kelas 2
+TT-3038,3,Kelas 2
+TT-3039,3,Kelas 2
+TT-3040,3,Kelas 2
+TT-3041,3,Kelas 2
+TT-3042,3,Kelas 2
+TT-3043,3,Kelas 2
+TT-3044,3,Kelas 2
+TT-3045,3,Kelas 2
+TT-3046,3,Kelas 2
+TT-3047,3,Kelas 2
+TT-3048,3,Kelas 2
+TT-3049,3,Kelas 2
+TT-3050,3,Kelas 2
+TT-3051,3,Kelas 2
+TT-3052,3,Kelas 2
+TT-3053,3,Kelas 2
+TT-3054,3,Kelas 2
+TT-3055,3,Kelas 2
+TT-3056,3,Kelas 2
+TT-3057,3,Kelas 2
+TT-3058,3,Kelas 2
+TT-3059,3,Kelas 2
+TT-3060,3,Kelas 2
+TT-3061,3,Kelas 2
+TT-3062,3,Kelas 2
+TT-3063,3,Kelas 2
+TT-3064,3,Kelas 2
+TT-3065,3,Kelas 2
+TT-3066,3,Kelas 2
+TT-3067,3,Kelas 2
+TT-3068,3,Kelas 2
+TT-3069,3,Kelas 2
+TT-3070,3,Kelas 2
+TT-3071,3,Kelas 2
+TT-3072,3,Kelas 2
+TT-3073,3,Kelas 2
+TT-3074,3,Kelas 2
+TT-3075,3,Kelas 2
+TT-3076,3,Kelas 2
+TT-3077,3,Kelas 2
+TT-3078,3,Kelas 2
+TT-3079,3,Kelas 2
+TT-3080,3,Kelas 2
+TT-3081,3,Kelas 2
+TT-3082,3,Kelas 2
+TT-3083,3,Kelas 2
+TT-3084,3,Kelas 2
+TT-3085,3,Kelas 2
+TT-3086,3,Kelas 2
+TT-3087,3,Kelas 2
+TT-3088,3,Kelas 2
+TT-3089,3,Kelas 2
+TT-3090,3,Kelas 2
+TT-3091,3,Kelas 2
+TT-3092,3,Kelas 2
+TT-3093,3,Kelas 2
+TT-3094,3,Kelas 2
+TT-3095,3,Kelas 2
+TT-3096,3,Kelas 2
+TT-3097,3,Kelas 2
+TT-3098,3,Kelas 2
+TT-3099,3,Kelas 2
+TT-3100,3,Kelas 2
+TT-3101,3,Kelas 2
+TT-3102,3,Kelas 2
+TT-3103,3,Kelas 2
+TT-3104,3,Kelas 2
+TT-3105,3,Kelas 2
+TT-3106,3,Kelas 2
+TT-3107,3,Kelas 2
+TT-3108,3,Kelas 2
+TT-3109,3,Kelas 2
+TT-3110,3,Kelas 2
+TT-3111,3,Kelas 2
+TT-3112,3,Kelas 2
+TT-3113,3,Kelas 2
+TT-3114,3,Kelas 2
+TT-3115,3,Kelas 2
+TT-3116,3,Kelas 2
+TT-3117,3,Kelas 2
+TT-3118,3,Kelas 2
+TT-3119,3,Kelas 2
+TT-3120,3,Kelas 2
+TT-4001,4,Kelas 3
+TT-4002,4,Kelas 3
+TT-4003,4,Kelas 3
+TT-4004,4,Kelas 3
+TT-4005,4,Kelas 3
+TT-4006,4,Kelas 3
+TT-4007,4,Kelas 3
+TT-4008,4,Kelas 3
+TT-4009,4,Kelas 3
+TT-4010,4,Kelas 3
+TT-4011,4,Kelas 3
+TT-4012,4,Kelas 3
+TT-4013,4,Kelas 3
+TT-4014,4,Kelas 3
+TT-4015,4,Kelas 3
+TT-4016,4,Kelas 3
+TT-4017,4,Kelas 3
+TT-4018,4,Kelas 3
+TT-4019,4,Kelas 3
+TT-4020,4,Kelas 3
+TT-4021,4,Kelas 3
+TT-4022,4,Kelas 3
+TT-4023,4,Kelas 3
+TT-4024,4,Kelas 3
+TT-4025,4,Kelas 3
+TT-4026,4,Kelas 3
+TT-4027,4,Kelas 3
+TT-4028,4,Kelas 3
+TT-4029,4,Kelas 3
+TT-4030,4,Kelas 3
+TT-4031,4,Kelas 3
+TT-4032,4,Kelas 3
+TT-4033,4,Kelas 3
+TT-4034,4,Kelas 3
+TT-4035,4,Kelas 3
+TT-4036,4,Kelas 3
+TT-4037,4,Kelas 3
+TT-4038,4,Kelas 3
+TT-4039,4,Kelas 3
+TT-4040,4,Kelas 3
+TT-4041,4,Kelas 3
+TT-4042,4,Kelas 3
+TT-4043,4,Kelas 3
+TT-4044,4,Kelas 3
+TT-4045,4,Kelas 3
+TT-4046,4,Kelas 3
+TT-4047,4,Kelas 3
+TT-4048,4,Kelas 3
+TT-4049,4,Kelas 3
+TT-4050,4,Kelas 3
+TT-4051,4,Kelas 3
+TT-4052,4,Kelas 3
+TT-4053,4,Kelas 3
+TT-4054,4,Kelas 3
+TT-4055,4,Kelas 3
+TT-4056,4,Kelas 3
+TT-4057,4,Kelas 3
+TT-4058,4,Kelas 3
+TT-4059,4,Kelas 3
+TT-4060,4,Kelas 3
+TT-4061,4,Kelas 3
+TT-4062,4,Kelas 3
+TT-4063,4,Kelas 3
+TT-4064,4,Kelas 3
+TT-4065,4,Kelas 3
+TT-4066,4,Kelas 3
+TT-4067,4,Kelas 3
+TT-4068,4,Kelas 3
+TT-4069,4,Kelas 3
+TT-4070,4,Kelas 3
+TT-4071,4,Kelas 3
+TT-4072,4,Kelas 3
+TT-4073,4,Kelas 3
+TT-4074,4,Kelas 3
+TT-4075,4,Kelas 3
+TT-4076,4,Kelas 3
+TT-4077,4,Kelas 3
+TT-4078,4,Kelas 3
+TT-4079,4,Kelas 3
+TT-4080,4,Kelas 3
+TT-4081,4,Kelas 3
+TT-4082,4,Kelas 3
+TT-4083,4,Kelas 3
+TT-4084,4,Kelas 3
+TT-4085,4,Kelas 3
+TT-4086,4,Kelas 3
+TT-4087,4,Kelas 3
+TT-4088,4,Kelas 3
+TT-4089,4,Kelas 3
+TT-4090,4,Kelas 3
+TT-4091,4,Kelas 3
+TT-4092,4,Kelas 3
+TT-4093,4,Kelas 3
+TT-4094,4,Kelas 3
+TT-4095,4,Kelas 3
+TT-4096,4,Kelas 3
+TT-4097,4,Kelas 3
+TT-4098,4,Kelas 3
+TT-4099,4,Kelas 3
+TT-4100,4,Kelas 3
+TT-4101,4,Kelas 3
+TT-4102,4,Kelas 3
+TT-4103,4,Kelas 3
+TT-4104,4,Kelas 3
+TT-4105,4,Kelas 3
+TT-4106,4,Kelas 3
+TT-4107,4,Kelas 3
+TT-4108,4,Kelas 3
+TT-4109,4,Kelas 3
+TT-4110,4,Kelas 3
+TT-4111,4,Kelas 3
+TT-4112,4,Kelas 3
+TT-4113,4,Kelas 3
+TT-4114,4,Kelas 3
+TT-4115,4,Kelas 3
+TT-4116,4,Kelas 3
+TT-4117,4,Kelas 3
+TT-4118,4,Kelas 3
+TT-4119,4,Kelas 3
+TT-4120,4,Kelas 3
+TT-4121,4,Kelas 3
+TT-4122,4,Kelas 3
+TT-4123,4,Kelas 3
+TT-4124,4,Kelas 3
+TT-4125,4,Kelas 3
+TT-4126,4,Kelas 3
+TT-4127,4,Kelas 3
+TT-4128,4,Kelas 3
+TT-4129,4,Kelas 3
+TT-4130,4,Kelas 3
+TT-4131,4,Kelas 3
+TT-4132,4,Kelas 3
+TT-4133,4,Kelas 3
+TT-4134,4,Kelas 3
+TT-4135,4,Kelas 3
+TT-4136,4,Kelas 3
+TT-4137,4,Kelas 3
+TT-4138,4,Kelas 3
+TT-4139,4,Kelas 3
+TT-4140,4,Kelas 3
+TT-4141,4,Kelas 3
+TT-4142,4,Kelas 3
+TT-4143,4,Kelas 3
+TT-4144,4,Kelas 3
+TT-4145,4,Kelas 3
+TT-4146,4,Kelas 3
+TT-4147,4,Kelas 3
+TT-4148,4,Kelas 3
+TT-4149,4,Kelas 3
+TT-4150,4,Kelas 3
+TT-4151,4,Kelas 3
+TT-4152,4,Kelas 3
+TT-4153,4,Kelas 3
+TT-4154,4,Kelas 3
+TT-4155,4,Kelas 3
+TT-4156,4,Kelas 3
+TT-4157,4,Kelas 3
+TT-4158,4,Kelas 3
+TT-4159,4,Kelas 3
+TT-4160,4,Kelas 3
+TT-4161,4,Kelas 3
+TT-4162,4,Kelas 3
+TT-4163,4,Kelas 3
+TT-4164,4,Kelas 3
+TT-4165,4,Kelas 3
+TT-4166,4,Kelas 3
+TT-4167,4,Kelas 3
+TT-4168,4,Kelas 3
+TT-4169,4,Kelas 3
+TT-4170,4,Kelas 3
+TT-4171,4,Kelas 3
+TT-4172,4,Kelas 3
+TT-4173,4,Kelas 3
+TT-4174,4,Kelas 3
+TT-4175,4,Kelas 3
+TT-4176,4,Kelas 3
+TT-4177,4,Kelas 3
+TT-4178,4,Kelas 3
+TT-4179,4,Kelas 3
+TT-4180,4,Kelas 3

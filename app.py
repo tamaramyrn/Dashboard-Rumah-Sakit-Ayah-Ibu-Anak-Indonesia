@@ -20,30 +20,33 @@ def _rd(name):
     return pd.read_csv(os.path.join(D, name + ".csv"))
 
 dim_waktu = _rd("dim_waktu")                                               # kalender (FK tanggal)
-dim_diagnosis = _rd("dim_diagnosis").rename(columns={"nama_diagnosis": "diagnosis"})
+dim_icd10 = _rd("dim_icd10").rename(columns={"nama_diagnosis": "diagnosis"})  # dimensi ICD-10
 dim_departemen = _rd("dim_departemen").rename(columns={"nama_departemen": "departemen"})
 dim_kelas = _rd("dim_kelas")
 _kelas_nm = dim_kelas[["id_kelas", "nama_kelas"]].rename(columns={"nama_kelas": "kelas"})
+dim_modalitas = _rd("dim_radiologi")
+dim_jenis_lab = _rd("dim_lab")
+# tarif diambil dari DIMENSI (bukan hardcode) — satu sumber kebenaran
+TARIF_KAMAR = dict(zip(dim_kelas.nama_kelas, dim_kelas.tarif_kamar_per_hari))
+TARIF_RAD = dict(zip(dim_modalitas.nama_modalitas, dim_modalitas.tarif_per_pemeriksaan))
+TARIF_LAB = int(dim_jenis_lab.tarif_per_tes.iloc[0])
 
 # fact_klaim_ri + dimensi → tabel analisis utama 'df'
 df = _rd("fact_klaim_ri")
 df["tgl_masuk"] = pd.to_datetime(df.tgl_masuk); df["tgl_keluar"] = pd.to_datetime(df.tgl_keluar)
 df["tahun"] = df.tgl_masuk.dt.year; df["bulan"] = df.tgl_masuk.dt.month   # turunan dari FK tanggal (dim_waktu)
-df = df.merge(dim_diagnosis, on="kode_icd", how="left")
+df = df.merge(dim_icd10, on="kode_icd", how="left")
 df = df.merge(dim_departemen, on="id_departemen", how="left")
 df = df.merge(_kelas_nm, on="id_kelas", how="left")
-# fact_lab → flag pakai_lab, jumlah tes, jenis lab
-_fl = _rd("fact_lab").rename(columns={"jumlah_tes": "jumlah_tes_lab"})
-df = df.merge(_fl, on="id_admisi", how="left")
-df["pakai_lab"] = np.where(df.jumlah_tes_lab.notna(), "Ya", "Tidak")
+# fact_penunjang_diagnostik (LAB + RADIOLOGI disatukan) → flag & ukuran per admisi
+_fp = _rd("fact_penunjang_diagnostik")[["id_admisi", "jenis_lab", "jumlah_tes_lab", "modalitas_radiologi", "jumlah_radiologi"]]
+df = df.merge(_fp, on="id_admisi", how="left")
 df["jumlah_tes_lab"] = df.jumlah_tes_lab.fillna(0).astype(int)
-df["jenis_lab"] = df.jenis_lab.fillna("")
-# fact_radiologi → flag pakai_radiologi, jumlah, modalitas
-_fr = _rd("fact_radiologi").rename(columns={"jumlah": "jumlah_radiologi", "modalitas": "modalitas_radiologi"})
-df = df.merge(_fr, on="id_admisi", how="left")
-df["pakai_radiologi"] = np.where(df.jumlah_radiologi.notna(), "Ya", "Tidak")
 df["jumlah_radiologi"] = df.jumlah_radiologi.fillna(0).astype(int)
+df["jenis_lab"] = df.jenis_lab.fillna("")
 df["modalitas_radiologi"] = df.modalitas_radiologi.fillna("—")
+df["pakai_lab"] = np.where(df.jumlah_tes_lab > 0, "Ya", "Tidak")
+df["pakai_radiologi"] = np.where(df.jumlah_radiologi > 0, "Ya", "Tidak")
 
 # fact_operasi + dimensi → 'op'
 op = _rd("fact_operasi").merge(dim_departemen, on="id_departemen", how="left").merge(_kelas_nm, on="id_kelas", how="left")
@@ -54,8 +57,8 @@ obat = _rd("dim_obat")
 obat["status_stok"] = np.where(obat.stok_saat_ini > obat.reorder_point * 2, "Overstock",
                                np.where(obat.stok_saat_ini < obat.reorder_point, "Understock", "Normal"))
 
-# fact_bor + dim_kelas → 'bor' ; fact_stok_obat_bulanan → 'stok_ts'
-bor = _rd("fact_bor").merge(dim_kelas[["id_kelas", "nama_kelas"]], on="id_kelas", how="left").rename(columns={"nama_kelas": "kode_kelas"})
+# fact_okupansi_kamar + dim_kelas → 'bor' ; fact_stok_obat_bulanan → 'stok_ts'
+bor = _rd("fact_okupansi_kamar").merge(dim_kelas[["id_kelas", "nama_kelas"]], on="id_kelas", how="left").rename(columns={"nama_kelas": "kode_kelas"})
 stok_ts = _rd("fact_stok_obat_bulanan").rename(columns={"jml_understock": "understock", "jml_overstock": "overstock"})
 
 YEARS = sorted(int(y) for y in df["tahun"].unique())
@@ -388,12 +391,10 @@ def page_klaim(year, kelas, dept):
         html.Div("top 10 diagnosis penyumbang kerugian", className="card-title"),
         dcc.Graph(figure=style(f_diag, 280, legend=False), config={"displayModeBar": False})])
     # Card D — Kategorisasi Biaya (dari data nyata). Semua komponen biaya riil masuk sini.
-    TARIF_KAMAR = {"VIP": 1200000, "Kelas 1": 600000, "Kelas 2": 350000, "Kelas 3": 200000}
-    TARIF_RAD = {"X-Ray": 150000, "USG": 200000, "CT-Scan": 1200000, "MRI": 2500000}
-    akom = float((d.los_hari * d.kelas.map(TARIF_KAMAR)).sum())
+    akom = float((d.los_hari * d.kelas.map(TARIF_KAMAR)).sum())   # tarif kamar ← dim_kelas
     operasi = float(surg(year, kelas, dept).biaya_operasi.sum())
-    labc = float(d.jumlah_tes_lab.sum()) * 70000.0
-    radc = float((d.jumlah_radiologi * d.modalitas_radiologi.map(TARIF_RAD).fillna(0)).sum())
+    labc = float(d.jumlah_tes_lab.sum()) * TARIF_LAB              # tarif ← dim_jenis_lab
+    radc = float((d.jumlah_radiologi * d.modalitas_radiologi.map(TARIF_RAD).fillna(0)).sum())  # ← dim_modalitas
     lainnya = max(biaya - akom - operasi - labc - radc, 0.0)
     cats = sorted([("Kamar Operasi", operasi, TEAL), ("Akomodasi Kamar", akom, NAVY),
                    ("Laboratorium", labc, AMBER), ("Radiologi", radc, "#3FA7D6"),
@@ -764,9 +765,8 @@ def page_penunjang(year, kelas, dept):  # Penunjang diagnostik: Lab & Radiologi
     n_lab = int((d.pakai_lab == "Ya").sum()); labpct = 100 * n_lab / n_tot if n_tot else 0
     n_rad = int((d.pakai_radiologi == "Ya").sum()); radpct = 100 * n_rad / n_tot if n_tot else 0
     # biaya diagnostik = lab (70rb/tes) + radiologi (per modalitas), konsisten dgn Kategorisasi di Klaim
-    _TARIF_RAD = {"X-Ray": 150000, "USG": 200000, "CT-Scan": 1200000, "MRI": 2500000}
-    _labc = float(d.jumlah_tes_lab.sum()) * 70000.0
-    _radc = float((d.jumlah_radiologi * d.modalitas_radiologi.map(_TARIF_RAD).fillna(0)).sum())
+    _labc = float(d.jumlah_tes_lab.sum()) * TARIF_LAB
+    _radc = float((d.jumlah_radiologi * d.modalitas_radiologi.map(TARIF_RAD).fillna(0)).sum())
     _diagc = _labc + _radc
     _biaya = float(d.biaya_riil.sum())
     _kontrib = 100 * _diagc / _biaya if _biaya else 0

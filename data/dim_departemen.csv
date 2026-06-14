@@ -1,8 +1,8 @@
-id_departemen,nama_departemen
-1,Bedah
-2,Bedah Saraf
-3,Jantung
-4,Neurologi
-5,Obstetri
-6,Paru
-7,Penyakit Dalam
+id_departemen,nama_departemen,jumlah_dokter
+1,Bedah,10
+2,Bedah Saraf,4
+3,Jantung,6
+4,Neurologi,5
+5,Obstetri,8
+6,Paru,5
+7,Penyakit Dalam,12
