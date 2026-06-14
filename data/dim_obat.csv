@@ -1,0 +1,31 @@
+id_obat,nama_obat,kategori_abc,fornas,nilai_konsumsi,stok_saat_ini,reorder_point
+1,Spironolactone 25mg,C,Ya,1166679800,167,351
+2,Rituximab 500mg,A,Tidak,17393600000,246,151
+3,Ceftriaxone 1g Inj,B,Ya,3792908000,740,331
+4,Omeprazole 40mg Inj,B,Ya,4417248000,242,268
+5,Meropenem 1g Inj,A,Ya,4427285000,525,277
+6,Albumin Human 25% 100mL,A,Ya,18967500000,549,313
+7,Insulin Glargine 100 IU/mL,A,Ya,5682645000,442,206
+8,Atorvastatin 40mg Tab,C,Ya,2385297000,689,277
+9,Paracetamol Inf 1g,C,Ya,2530026000,149,256
+10,Ciprofloxacin 400mg Inf,C,Ya,4757865000,1165,485
+11,Piperacillin-Tazobactam 4.5g,A,Ya,3673560000,837,346
+12,Clopidogrel 75mg Tab,B,Ya,3411720000,309,275
+13,Dobutamin 250mg Inj,B,Ya,11957440000,896,373
+14,Heparin 5000 IU/mL,B,Ya,6094350000,345,405
+15,Lansoprazole 30mg,C,Ya,2022204200,97,210
+16,Norepinephrine 4mg Inj,B,Ya,12919335000,53,70
+17,Furosemide 40mg Inj,C,Ya,4509938500,79,225
+18,Bevacizumab 100mg,A,Tidak,11521800000,802,413
+19,Levofloxacin 750mg Inf,A,Ya,12888365000,253,284
+20,Enoxaparin 0.6mL Inj,B,Ya,10603788000,177,78
+21,Pemetrexed 500mg,A,Tidak,14042600000,320,144
+22,Asam Folat 1mg Tab,C,Ya,421452000,205,492
+23,Trastuzumab 440mg,A,Tidak,15319200000,493,444
+24,Ranitidine 50mg Inj,C,Ya,4978893000,117,151
+25,Ondansetron 8mg Inj,B,Ya,3010568000,165,290
+26,Tramadol 100mg Inj,C,Ya,1883938000,492,330
+27,Vancomycin 1g Inj,A,Ya,4949010000,216,96
+28,Metformin 500mg Tab,C,Ya,638505600,103,71
+29,Amlodipine 10mg Tab,C,Ya,802765500,141,162
+30,Salbutamol Nebul,C,Ya,1647936000,1161,475

@@ -1,0 +1,19 @@
+kode_icd,nama_diagnosis,kategori_penyakit
+A09,Diare & Gastroenteritis,Infeksi
+A15.0,Tuberkulosis Paru,Infeksi
+A41.9,Sepsis Berat,Infeksi
+C50.9,Kemoterapi Kanker Payudara,Kronis
+D64.9,Anemia Kronik,Kronis
+E11.9,Diabetes Mellitus Tipe 2,Kronis
+I10,Hipertensi Esensial,Kronis
+I21.9,Infark Miokard Akut,Kronis
+I50.9,Gagal Jantung,Kronis
+I63,Stroke Iskemik,Kronis
+J18.9,Pneumonia,Infeksi
+J45,Asma Bronkial Eksaserbasi,Akut
+K35.8,Apendisitis Akut,Akut
+K64,Hemoroid Grade III,Akut
+N18.5,GGK Stadium 5,Kronis
+N39.0,Infeksi Saluran Kemih,Infeksi
+O82,Persalinan Sectio Caesaria,Maternal
+S06.0,Cedera Kepala Sedang,Akut

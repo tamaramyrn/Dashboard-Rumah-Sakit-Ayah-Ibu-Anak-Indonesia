@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+* { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+body { margin:0; font-family:'Plus Jakarta Sans', system-ui, sans-serif; background:#F4F7F9; color:#1F4E79; }
+
+.app { display:flex; min-height:100vh; text-transform:capitalize; }
+/* biarkan teks di dalam chart (Plotly) apa adanya, jangan ikut di-Title-Case */
+.js-plotly-plot, .js-plotly-plot text { text-transform:none; }
+
+/* ── Sidebar ── */
+.sidebar { width:195px; min-width:195px; background:#FFFFFF; border-right:1px solid #E5E9F0; padding:22px 14px; display:flex; flex-direction:column; gap:5px; position:sticky; top:0; height:100vh; }
+.brand-name { font-size:13.5px; font-weight:800; letter-spacing:-.01em; line-height:1.25; }
+.brand-sub { font-size:10.5px; font-weight:600; color:#7D8898; margin-top:4px; }
+.nav-label { font-size:9.5px; text-transform:capitalize; letter-spacing:.18em; color:#A0ABB8; font-weight:700; margin:20px 7px 9px; }
+.navitem { display:block; width:100%; text-align:left; border:none; background:transparent; padding:10px 13px; border-radius:10px; font-size:13px; font-weight:600; color:#4A5868; cursor:pointer; transition:all .15s ease; font-family:inherit; }
+.navitem:hover { background:#F0F3F7; }
+.navitem.active { background:#1F4E79; color:#FFFFFF; box-shadow:0 4px 12px rgba(14,27,44,.15); }
+.sidebar-foot { margin-top:auto; font-size:10.5px; color:#7D8898; display:flex; align-items:center; gap:8px; }
+.dot { height:8px; width:8px; border-radius:50%; background:#0E9F8A; box-shadow:0 0 8px rgba(14,159,138,.6); }
+
+/* ── Main ── */
+.main { flex:1; min-width:0; display:flex; flex-direction:column; }
+.topbar { background:#FFFFFF; border-bottom:1px solid #E5E9F0; padding:18px 32px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:5; }
+.eyebrow { font-size:10px; text-transform:capitalize; letter-spacing:.22em; color:#A0ABB8; font-weight:700; }
+.eyebrow b { color:#E15A3F; }
+.page-title { font-size:24px; font-weight:800; margin:4px 0 0; letter-spacing:-.02em; }
+.yeardd { width:150px; }
+.content { padding:22px 32px 36px; }
+
+/* ── KPI ── */
+.kpi-row { display:grid; grid-template-columns:repeat(6,1fr); gap:14px; margin-bottom:18px; }
+.kpi { background:#FFFFFF; border:1px solid #E5E9F0; border-radius:14px; padding:16px 18px; box-shadow:0 2px 8px rgba(14,27,44,.04); }
+.kpi-label { font-size:11px; font-weight:700; color:#7D8898; text-transform:capitalize; letter-spacing:.06em; }
+.kpi-value { font-size:26px; font-weight:800; letter-spacing:-.02em; margin:8px 0 4px; line-height:1; }
+.kpi-sub { font-size:11px; color:#7D8898; font-weight:500; }
+
+/* ── Cards / grid ── */
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.g-7-5 { display:grid; grid-template-columns:7fr 5fr; gap:16px; }
+.g-8-4 { display:grid; grid-template-columns:8fr 4fr; gap:16px; }
+.card { background:#FFFFFF; border:1px solid #E5E9F0; border-radius:16px; padding:18px 20px; box-shadow:0 2px 10px rgba(14,27,44,.05); margin-bottom:16px; }
+.card-title { font-size:14px; font-weight:800; text-transform:capitalize; letter-spacing:.03em; margin-bottom:8px; color:#1F4E79; }
+
+/* ── Module cards (Ringkasan bawah) ── */
+.mod-row { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:16px; }
+.mod-link { cursor:pointer; transition:all .15s ease; }
+.mod-link:hover { box-shadow:0 6px 16px rgba(14,27,44,.12); transform:translateY(-2px); border-color:#C7D2DE; }
+.mod { background:#FFFFFF; border:1px solid #E5E9F0; border-radius:14px; padding:16px 18px; box-shadow:0 2px 8px rgba(14,27,44,.04); }
+.mod-head { display:flex; align-items:center; gap:9px; margin-bottom:10px; }
+.mod-icon { width:30px; height:30px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:15px; flex:0 0 auto; }
+.mod-label { font-size:11px; font-weight:800; color:#A0ABB8; text-transform:capitalize; letter-spacing:.1em; }
+.mod-value { font-size:24px; font-weight:800; margin:8px 0 4px; }
+.mod-sub { font-size:11.5px; color:#7D8898; font-weight:500; }
+
+/* ── Filter bar ── */
+.filters { display:flex; gap:10px; align-items:center; }
+.dd { width:140px; font-size:13px; }
+.ddw { width:185px; }
+
+/* ── Header ala HTML (Ringkasan) ── */
+.head-row { display:grid; grid-template-columns:3fr 5fr 4fr; gap:24px; align-items:start; background:#FFFFFF; border:1px solid #E5E9F0; border-radius:16px; padding:22px 26px; box-shadow:0 2px 10px rgba(14,27,44,.05); margin-bottom:18px; }
+.head-col.bl { border-left:1px solid #E5E9F0; padding-left:24px; }
+.head-label { font-size:11px; font-weight:700; color:#7D8898; text-transform:capitalize; letter-spacing:.08em; margin-bottom:8px; }
+.head-year { font-size:31px; font-weight:800; letter-spacing:-.03em; line-height:1; }
+.head-sub { font-size:11.5px; color:#7D8898; font-weight:500; margin-top:8px; }
+.loss-wrap { display:flex; align-items:center; gap:12px; }
+.head-loss { font-size:38px; font-weight:800; color:#E15A3F; letter-spacing:-.02em; }
+.head-badge { font-size:14px; font-weight:800; color:#E15A3F; background:#FFF4F0; padding:4px 9px; border-radius:8px; }
+.head-help { font-size:11.5px; color:#7D8898; line-height:1.5; font-weight:500; margin-top:10px; }
+.bar-item { margin-bottom:14px; }
+.bar-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px; }
+.bar-label { font-size:11px; font-weight:700; color:#1F4E79; text-transform:capitalize; letter-spacing:.06em; }
+.bar-value { font-size:16px; font-weight:800; }
+.bar-track { height:8px; background:#F0F3F7; border-radius:99px; overflow:hidden; }
+.bar-fill { height:100%; border-radius:99px; }
+.bar-note { font-size:11px; color:#7D8898; font-weight:500; margin-top:6px; }
+
+/* KPI 3 kolom (Operasi) */
+.kpi-row.k3 { grid-template-columns:repeat(3,1fr); }
+
+/* ── Bar komposisi Biaya Riil (Diganti BPJS vs Ditanggung RS) ── */
+.comp-total { font-size:24px; font-weight:800; color:#1F4E79; margin:6px 0 12px; letter-spacing:-.02em; }
+.comp-bar { display:flex; height:14px; border-radius:99px; overflow:hidden; background:#F0F3F7; }
+.comp-bar > div { height:100%; }
+.comp-legend { margin-top:14px; display:flex; flex-direction:column; gap:9px; }
+.comp-item { display:flex; align-items:center; gap:9px; font-size:12.5px; }
+.comp-dot { width:11px; height:11px; border-radius:3px; flex:0 0 auto; }
+.comp-name { font-weight:700; color:#1F4E79; }
+.comp-val { margin-left:auto; font-weight:800; font-variant-numeric:tabular-nums; color:#1F4E79; }
+
+/* ── Header alur cerita (4 kolom) ── */
+.head-row.r4 { grid-template-columns:1.2fr 2.2fr 2.5fr 2.5fr; }
+.head-stat-wrap { display:flex; align-items:center; gap:9px; margin:7px 0 6px; flex-wrap:nowrap; }
+.head-stat-val { font-size:31px; font-weight:800; letter-spacing:-.02em; line-height:1; white-space:nowrap; }
+/* strip komposisi tipis full-width */
+.comp-strip { background:#FFFFFF; border:1px solid #E5E9F0; border-radius:14px; padding:14px 18px; box-shadow:0 2px 8px rgba(14,27,44,.04); margin-bottom:18px; }
+.comp-bar { display:flex; height:13px; border-radius:99px; overflow:hidden; background:#F0F3F7; }
+.comp-bar > div { height:100%; }
+.comp-cap { display:flex; gap:22px; margin-top:9px; font-size:12px; font-weight:700; color:#4A5868; }
+.comp-cap > span { display:flex; align-items:center; gap:7px; }
+
+/* ── Judul + legenda sejajar (1 baris) ── */
+.card-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; flex-wrap:nowrap; gap:10px; }
+.card-head .card-title { flex:1; min-width:0; }
+.card-legend { display:flex; gap:12px; align-items:center; flex:0 0 auto; }
+.lg-item { display:flex; align-items:center; gap:6px; font-size:11px; font-weight:600; color:#4A5868; white-space:nowrap; }
+.lg-dot { width:12px; height:12px; border-radius:3px; flex:0 0 auto; }
+.lg-line { width:18px; height:3px; border-radius:99px; flex:0 0 auto; }
+
+/* ── Halaman Klaim BPJS (ala HTML) ── */
+.g-5-7 { display:grid; grid-template-columns:5fr 7fr; gap:16px; }
+/* Total Klaim */
+.kl-total-head { display:flex; align-items:baseline; gap:9px; }
+.kl-eyebrow { font-size:11px; font-weight:700; color:#7D8898; text-transform:capitalize; letter-spacing:.08em; }
+.kl-year { font-size:15px; font-weight:800; color:#E15A3F; }
+.kl-total-num { font-size:42px; font-weight:800; color:#1F4E79; letter-spacing:-.02em; margin:8px 0 16px; line-height:1; }
+.kl-stats { display:flex; flex-direction:column; gap:13px; border-top:1px solid #E5E9F0; padding-top:15px; }
+.kl-stat { display:flex; justify-content:space-between; align-items:baseline; }
+.kl-stat-label { font-size:12px; font-weight:700; color:#4A5868; text-transform:capitalize; letter-spacing:.04em; }
+.kl-stat-val { font-size:21px; font-weight:800; }
+/* Status klaim */
+.kl-status-list { display:flex; flex-direction:column; gap:9px; }
+.kl-status-list.mutu-list { gap:24px; padding-top:6px; }
+.kl-d-list { display:flex; flex-direction:column; gap:16px; }
+.kl-rank-list.compact { gap:7px; }
+.kl-d-list.compact { gap:9px; }
+.kl-status-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:5px; }
+.kl-status-label { font-size:13px; font-weight:700; color:#1F4E79; }
+.kl-status-meta { display:flex; align-items:baseline; gap:14px; }
+.kl-status-count { font-size:11.5px; color:#7D8898; font-weight:600; font-variant-numeric:tabular-nums; }
+.kl-status-val { font-size:13px; font-weight:800; font-variant-numeric:tabular-nums; min-width:96px; text-align:right; }
+.kl-status-pct { font-size:13px; font-weight:800; min-width:50px; text-align:right; }
+.kl-bar { height:8px; background:#F0F3F7; border-radius:99px; overflow:hidden; }
+.kl-bar-fill { height:100%; border-radius:99px; }
+.kl-status-note { font-size:10.5px; color:#7D8898; font-weight:500; margin-top:3px; }
+/* Ranking */
+.kl-rank-list { display:flex; flex-direction:column; gap:21px; }
+/* Top 10 mengisi penuh tinggi kartu dengan jarak antar-baris yang rata */
+.kl-rank-card { display:flex; flex-direction:column; }
+.kl-rank-card .kl-rank-list { flex:1; justify-content:space-between; gap:0; }
+.kl-rank { display:flex; align-items:center; gap:12px; }
+.kl-rank-no { font-size:11px; font-weight:700; color:#A0ABB8; font-variant-numeric:tabular-nums; width:18px; flex:0 0 auto; }
+.kl-rank-mid { flex:0 0 42%; min-width:0; }
+.kl-rank-name { flex:0 0 44%; font-size:13.5px; font-weight:700; color:#1F4E79; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.kl-rank-sub { font-size:10.5px; color:#7D8898; font-weight:500; margin-top:2px; }
+.kl-rank-bar { flex:1; height:8px; background:#FFF4F0; border-radius:99px; overflow:hidden; margin:0 12px; }
+.kl-rank-bar-fill { height:100%; background:#E15A3F; border-radius:99px; }
+.kl-rank-right { width:92px; text-align:right; flex:0 0 auto; }
+.kl-rank-val { flex:0 0 auto; width:104px; text-align:right; font-size:13.5px; font-weight:800; color:#E15A3F; font-variant-numeric:tabular-nums; }
+.kl-rank-pct { font-size:10px; font-weight:700; color:#7D8898; }
+/* Decomposition */
+.kl-decomp { display:flex; flex-direction:column; gap:12px; }
+.kl-d-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+.kl-d-left { display:flex; align-items:center; gap:8px; min-width:0; }
+.kl-d-dot { width:10px; height:10px; border-radius:3px; flex:0 0 auto; }
+.kl-d-label { font-size:12.5px; font-weight:700; color:#1F4E79; }
+.kl-d-right { display:flex; align-items:baseline; gap:12px; flex:0 0 auto; }
+.kl-d-pct { font-size:11px; font-weight:700; color:#7D8898; }
+.kl-d-val { font-size:12.5px; font-weight:800; color:#E15A3F; font-variant-numeric:tabular-nums; }
+.kl-d-bar { height:6px; background:#F0F3F7; border-radius:99px; overflow:hidden; margin-left:18px; }
+.kl-d-bar-fill { height:100%; border-radius:99px; }
+.kl-decomp-total { display:flex; justify-content:space-between; align-items:center; margin-top:16px; padding-top:14px; border-top:1px solid #E5E9F0; }
+.kl-decomp-total > span:first-child { font-size:13.5px; font-weight:700; color:#1F4E79; text-transform:capitalize; letter-spacing:normal; }
+.kl-decomp-totval { font-size:15px; font-weight:800; color:#E15A3F; background:#FFF4F0; padding:5px 12px; border-radius:8px; }
+
+/* legenda kategorisasi (di bawah donut) */
+.kl-cat-legend { display:flex; flex-direction:column; gap:13px; margin-top:8px; }
+.kl-cat-legend .kl-d-head { margin-bottom:0; }
+.kpi-row.k4 { grid-template-columns:repeat(4,1fr); }
+
+/* ── Operasional Bangsal (ala HTML) ── */
+.mb-card { display:flex; flex-direction:column; }
+.mb-label { font-size:10.5px; font-weight:700; color:#7D8898; text-transform:capitalize; letter-spacing:.05em; }
+.mb-value { font-size:26px; font-weight:800; margin:8px 0 12px; line-height:1; letter-spacing:-.01em; }
+.mb-track { position:relative; height:8px; background:#F0F3F7; border-radius:99px; overflow:hidden; }
+.mb-fill { height:100%; border-radius:99px; }
+.mb-target { position:absolute; top:0; bottom:0; width:2px; background:#1F4E79; }
+.mb-note { font-size:11px; color:#7D8898; font-weight:500; margin-top:8px; }
+.dg-row { display:grid; grid-template-columns:1.4fr 1.3fr 2.2fr auto; gap:12px; align-items:center; }
+.dg-name { font-size:12.5px; font-weight:700; color:#1F4E79; }
+.dg-meta { font-size:11px; color:#7D8898; font-weight:600; font-variant-numeric:tabular-nums; }
+.dg-bar { display:flex; height:8px; background:#F0F3F7; border-radius:99px; overflow:hidden; }
+.dg-gap { font-size:12px; font-weight:800; color:#E15A3F; font-variant-numeric:tabular-nums; text-align:right; }

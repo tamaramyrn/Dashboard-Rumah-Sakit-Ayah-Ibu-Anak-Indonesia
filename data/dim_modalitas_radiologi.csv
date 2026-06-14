@@ -1,0 +1,5 @@
+id_modalitas,nama_modalitas,tarif_per_pemeriksaan
+1,X-Ray,150000
+2,USG,200000
+3,CT-Scan,1200000
+4,MRI,2500000
