@@ -381,10 +381,12 @@ def page_klaim(year, kelas, dept):
     # Card C — Top 10 diagnosis penyumbang kerugian (bar horizontal ala "kelebihan menit per departemen")
     g = d.groupby("diagnosis").agg(sf=("shortfall", "sum")).sort_values("sf").head(10)
     names = g.index.tolist(); loss = g.sf.abs().tolist()
+    dx_dept = d.groupby("diagnosis").departemen.agg(lambda s: s.mode().iat[0])  # departemen tiap diagnosis
     f_diag = go.Figure(go.Bar(y=names, x=loss, orientation="h", marker_color=CORAL, marker_line_width=0,
                               text=[rp(v, 1) for v in g.sf], textposition="outside", cliponaxis=False,
                               textfont=dict(weight="bold", color=INK, size=12),
-                              hovertemplate="%{y}<br>%{text}<extra></extra>"))
+                              customdata=[dx_dept.get(nm, "—") for nm in names],
+                              hovertemplate="%{y}<br>Departemen: %{customdata}<br>%{text}<extra></extra>"))
     f_diag.update_layout(yaxis=dict(autorange="reversed"),
                          xaxis=dict(range=[0, max(loss) * 1.3] if loss else None, showticklabels=False))
     cardC = html.Div(className="card", children=[
