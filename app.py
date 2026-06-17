@@ -247,7 +247,7 @@ def page_ringkasan(year, kelas, dept):
             html.Div("6 tahun agregat" if year == "all" else "1 Jan – 31 Des", className="head-sub")]),
         head_stat("biaya riil RS", rp(by), "Total Biaya Pelayanan", INK),
         head_stat("diganti BPJS", rp(tf), "Berdasarkan Hasil Klaim BPJS", TEAL, pid(covered), "#E8F7F4"),
-        head_stat("kerugian (ditanggung RS)", rp(sf), "Selisih dari Tarif INA-CBGs", CORAL, pid(rate))])
+        head_stat("rata-rata rugi / pasien", rp(F["per_adm"]), "Rata-rata kerugian per admisi", CORAL, pid(rate))])
     # Tren ikut filter. "Semua Tahun" -> per tahun; tahun spesifik -> per bulan. Sumbu kiri auto-fit.
     if year == "all":
         m = d.groupby("tahun").agg(b=("biaya_riil", "sum"), t=("tarif_inacbg", "sum"), s=("shortfall", "sum"))
