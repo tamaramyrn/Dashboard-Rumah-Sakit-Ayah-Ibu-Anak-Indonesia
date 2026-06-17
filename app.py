@@ -523,11 +523,12 @@ def page_mutu(year, kelas, dept):
     od = d.copy()
     od["over"] = (od.los_hari - od.los_paket_bpjs).clip(lower=0)
     rd = od.groupby("diagnosis").over.mean().sort_values(ascending=False).head(5)
+    dx_dept = od.groupby("diagnosis").departemen.agg(lambda s: s.mode().iat[0])  # departemen tiap diagnosis
     f_read = go.Figure(go.Bar(y=rd.index.tolist(), x=rd.values, orientation="h", marker_color=CORAL, marker_line_width=0,
                               text=["+" + num(v) + " hari" for v in rd.values], textposition="auto", insidetextanchor="end",
                               textfont=dict(weight="bold", color="#FFFFFF", size=12.5),
-                              customdata=[num(v) for v in rd.values],
-                              hovertemplate="<b>%{y}</b><br>artinya kelebihan %{customdata} hari per pasien<extra></extra>"))
+                              customdata=[[num(v), dx_dept.get(dx, "—")] for dx, v in zip(rd.index, rd.values)],
+                              hovertemplate="<b>%{y}</b><br>Departemen: %{customdata[1]}<br>artinya kelebihan %{customdata[0]} hari per pasien<extra></extra>"))
     f_read.update_layout(yaxis=dict(autorange="reversed"),
                          xaxis=dict(range=[0, float(rd.max()) * 1.3] if len(rd) else None, showticklabels=False))
     cardDx = html.Div(className="card", children=[
