@@ -525,7 +525,9 @@ def page_mutu(year, kelas, dept):
     rd = od.groupby("diagnosis").over.sum().sort_values(ascending=False).head(5)
     f_read = go.Figure(go.Bar(y=rd.index.tolist(), x=rd.values, orientation="h", marker_color=CORAL, marker_line_width=0,
                               text=["+" + ribu(v) + " hari" for v in rd.values], textposition="auto", insidetextanchor="end",
-                              textfont=dict(weight="bold", color="#FFFFFF", size=12.5)))
+                              textfont=dict(weight="bold", color="#FFFFFF", size=12.5),
+                              customdata=[ribu(v) for v in rd.values],
+                              hovertemplate="<b>%{y}</b><br>artinya kelebihan %{customdata} hari<extra></extra>"))
     f_read.update_layout(yaxis=dict(autorange="reversed"),
                          xaxis=dict(range=[0, float(rd.max()) * 1.3] if len(rd) else None, showticklabels=False))
     cardDx = html.Div(className="card", children=[
@@ -648,12 +650,14 @@ def page_operasi(year, kelas, dept):
 
     # C4 — biaya kelebihan per jenis operasi → FUNNEL (urut dari yg terbesar)
     gc = o.groupby("jenis_operasi").over_cost.sum().sort_values(ascending=False).head(6)
+    dept_jenis = o.groupby("jenis_operasi").departemen.agg(lambda s: s.mode().iat[0])
     fcol = [PALETTE[i % len(PALETTE)] for i in range(len(gc))]
     f_cost = go.Figure(go.Funnel(y=gc.index.tolist(), x=gc.values.tolist(),
                                  text=[rp(v, 1) for v in gc.values], textinfo="text",
                                  textposition="inside", textfont=dict(weight="bold", color="#FFFFFF", size=12),
+                                 customdata=[dept_jenis.get(j, "—") for j in gc.index],
                                  marker=dict(color=fcol), connector=dict(fillcolor="rgba(0,0,0,0)", line=dict(width=0)),
-                                 hovertemplate="%{y}<br>%{text}<extra></extra>"))
+                                 hovertemplate="%{y}<br>Departemen: %{customdata}<br>%{text}<extra></extra>"))
     f_cost.update_layout(height=168, margin=dict(l=4, r=4, t=6, b=6), paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                          font=dict(family="Plus Jakarta Sans, sans-serif", size=11, color=INK), separators=",.",
                          yaxis=dict(showticklabels=True),
