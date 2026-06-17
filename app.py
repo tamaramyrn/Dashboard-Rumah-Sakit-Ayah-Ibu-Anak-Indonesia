@@ -519,21 +519,20 @@ def page_mutu(year, kelas, dept):
                                     legend_item(CORAL, "Kelebihan hari", line=True)], h=160)
     f1.update_layout(hoverlabel=dict(bgcolor="#1F4E79", bordercolor="#1F4E79",
                                      font=dict(family="Plus Jakarta Sans, sans-serif", size=12.5, color="#FFFFFF")))
-    # Overrun lama rawat per diagnosis — total hari di luar paket (volume × selisih) = fokus clinical pathway
+    # Overrun lama rawat per diagnosis — rata-rata kelebihan hari per pasien (admisi) = fokus clinical pathway
     od = d.copy()
     od["over"] = (od.los_hari - od.los_paket_bpjs).clip(lower=0)
-    rd = od.groupby("diagnosis").over.sum().sort_values(ascending=False).head(5)
-    rd_avg = od.groupby("diagnosis").over.mean()  # rata-rata kelebihan hari per pasien (admisi)
+    rd = od.groupby("diagnosis").over.mean().sort_values(ascending=False).head(5)
     f_read = go.Figure(go.Bar(y=rd.index.tolist(), x=rd.values, orientation="h", marker_color=CORAL, marker_line_width=0,
-                              text=["+" + ribu(v) + " hari" for v in rd.values], textposition="auto", insidetextanchor="end",
+                              text=["+" + num(v) + " hari" for v in rd.values], textposition="auto", insidetextanchor="end",
                               textfont=dict(weight="bold", color="#FFFFFF", size=12.5),
-                              customdata=[num(float(rd_avg[dx])) for dx in rd.index],
+                              customdata=[num(v) for v in rd.values],
                               hovertemplate="<b>%{y}</b><br>artinya kelebihan %{customdata} hari per pasien<extra></extra>"))
     f_read.update_layout(yaxis=dict(autorange="reversed"),
                          xaxis=dict(range=[0, float(rd.max()) * 1.3] if len(rd) else None, showticklabels=False))
     cardDx = html.Div(className="card", children=[
         html.Div("kelebihan lama rawat per diagnosis", className="card-title"),
-        html.Div("Total hari rawat di luar paket BPJS",
+        html.Div("Rata-rata hari rawat di luar paket BPJS per pasien",
                  style={"fontSize": "11.5px", "color": "#7D8898", "fontWeight": "600", "marginTop": "-4px", "marginBottom": "14px"}),
         dcc.Graph(figure=style(f_read, 185, legend=False), config={"displayModeBar": False})])
     # BOR (tingkat hunian tempat tidur) per kelas — metrik operasional bangsal, lepas dari ALOS
